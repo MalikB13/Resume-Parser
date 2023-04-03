@@ -6,6 +6,7 @@ from parser import (
     get_honors,
     get_summary,
     get_languages,
+    get_experiences,
     get_many,
 )
 
@@ -41,9 +42,57 @@ def test_get_summary():
 
 
 def test_get_languages():
-    li = ["English", "Spanish", "Latin", "Contact"]
+    li = ["English", "Spanish", "Latin", "Experience"]
     res = {"languages": ["English", "Spanish", "Latin"]}
     assert get_languages(li, -1)[0] == res["languages"]
+
+
+def test_get_experiences():
+    li = ["Meta",
+          "Software Engineer",
+          "May 2022-Present(11 months)",
+          "Menlo Park, California, United States",
+          "Integrity Observation Platform",
+          "Columbia Build Lab",
+          "Vice President of Community",
+          "February 2021-Present(2 years 2 months)",
+          "New York City Metropolitan Area",
+          "- Interview and match 30+ MBA startup founders with 50+ undergrad and",
+          "graduate SWE, PD, and PM interns each semester",
+          "- Manage a semester budget of $144k to pay student interns and organize",
+          "workshops and networking events",
+          "- Work with the Eugene M. Lang Entrepreneurship Center and the CS",
+          "Department to design academic guidelines for students",
+          "Skye",
+          "Software Engineer",
+          "February 2021-May 2022(1 year 4 months)",
+          "New York City Metropolitan Area",
+          "- Develop a full-stack web application for professional coaching services",
+          "- Implement Firebase back-end infrastructure for the React web app’s server to",
+          "reduce costs",
+          "- Design a novel matching algorithm to match 80+ clients to their personalized",
+          "coaches",
+          "- Clean data from 6700+ schools in the U.S. to train the matching algorithm on",
+          "Page 1 of 2",
+          "Contact"]
+    res = {"experiences": ['Meta', 'Software Engineer', 'May 2022-Present(11 months)',
+                           'Menlo Park, California, United States', 'Integrity Observation Platform',
+                           'Columbia Build Lab',
+                           'Vice President of Community', 'February 2021-Present(2 years 2 months)',
+                           'New York City Metropolitan Area',
+                           '- Interview and match 30+ MBA startup founders with 50+ undergrad and',
+                           'graduate SWE, PD, and PM interns each semester',
+                           '- Manage a semester budget of $144k to pay student interns and organize',
+                           'workshops and networking events',
+                           '- Work with the Eugene M. Lang Entrepreneurship Center and the CS',
+                           'Department to design academic guidelines for students', 'Skye', 'Software Engineer',
+                           'February 2021-May 2022(1 year 4 months)', 'New York City Metropolitan Area',
+                           '- Develop a full-stack web application for professional coaching services',
+                           '- Implement Firebase back-end infrastructure for the React web app’s server to',
+                           'reduce costs',
+                           '- Design a novel matching algorithm to match 80+ clients to their personalized', 'coaches',
+                           '- Clean data from 6700+ schools in the U.S. to train the matching algorithm on']}
+    assert get_experiences(li, -1)[0] == res["experiences"]
 
 
 def test_extract_pdf():
@@ -110,30 +159,23 @@ def test_extract_pdf():
         "Vice President of Community",
         "February 2021-Present(2 years 2 months)",
         "New York City Metropolitan Area",
-        "- Interview and match 30+ MBA startup founders with 50+ \
-            undergrad and",
+        "- Interview and match 30+ MBA startup founders with 50+ undergrad and",
         "graduate SWE, PD, and PM interns each semester",
-        "- Manage a semester budget of $144k to pay student interns \
-            and organize",
+        "- Manage a semester budget of $144k to pay student interns and organize",
         "workshops and networking events",
-        "- Work with the Eugene M. Lang Entrepreneurship Center and \
-            the CS",
+        "- Work with the Eugene M. Lang Entrepreneurship Center and the CS",
         "Department to design academic guidelines for students",
         "",
         "Skye",
         "Software Engineer",
         "February 2021-May 2022(1 year 4 months)",
         "New York City Metropolitan Area",
-        "- Develop a full-stack web application for professional \
-            coaching services",
-        "- Implement Firebase back-end infrastructure for the React \
-            web app’s server to",
+        "- Develop a full-stack web application for professional coaching services",
+        "- Implement Firebase back-end infrastructure for the React web app’s server to",
         "reduce costs",
-        "- Design a novel matching algorithm to match 80+ clients to \
-            their personalized",
+        "- Design a novel matching algorithm to match 80+ clients to their personalized",
         "coaches",
-        "- Clean data from 6700+ schools in the U.S. to train the matching \
-            algorithm on",
+        "- Clean data from 6700+ schools in the U.S. to train the matching algorithm on",
         "",
         "Page 1 of 2",
         "",
@@ -222,30 +264,23 @@ def test_get_many():
         "Vice President of Community",
         "February 2021-Present(2 years 2 months)",
         "New York City Metropolitan Area",
-        "- Interview and match 30+ MBA startup founders with 50+ \
-            undergrad and",
+        "- Interview and match 30+ MBA startup founders with 50+ undergrad and",
         "graduate SWE, PD, and PM interns each semester",
-        "- Manage a semester budget of $144k to pay student interns \
-            and organize",
+        "- Manage a semester budget of $144k to pay student interns and organize",
         "workshops and networking events",
-        "- Work with the Eugene M. Lang Entrepreneurship Center and \
-            the CS",
+        "- Work with the Eugene M. Lang Entrepreneurship Center and the CS",
         "Department to design academic guidelines for students",
         "",
         "Skye",
         "Software Engineer",
         "February 2021-May 2022(1 year 4 months)",
         "New York City Metropolitan Area",
-        "- Develop a full-stack web application for professional \
-            coaching services",
-        "- Implement Firebase back-end infrastructure for the React \
-            web app’s server to",
+        "- Develop a full-stack web application for professional coaching services",
+        "- Implement Firebase back-end infrastructure for the React web app’s server to",
         "reduce costs",
-        "- Design a novel matching algorithm to match 80+ clients to \
-            their personalized",
+        "- Design a novel matching algorithm to match 80+ clients to their personalized",
         "coaches",
-        "- Clean data from 6700+ schools in the U.S. to train the matching \
-            algorithm on",
+        "- Clean data from 6700+ schools in the U.S. to train the matching algorithm on",
         "",
         "Page 1 of 2",
         "",
@@ -297,6 +332,22 @@ def test_get_many():
         "summary": [
             "Hi, I'm Shivansh! I'm a senior at Columbia Engineering studying computer science. I'm interested in AI/ML, computer vision, and NLP. Feel free to reach out to me at ss5945@columbia.edu."
         ],
+        "experiences": ['Meta', 'Software Engineer', 'May 2022-Present(11 months)',
+                        'Menlo Park, California, United States', 'Integrity Observation Platform', 'Columbia Build Lab',
+                        'Vice President of Community', 'February 2021-Present(2 years 2 months)',
+                        'New York City Metropolitan Area',
+                        '- Interview and match 30+ MBA startup founders with 50+ undergrad and',
+                        'graduate SWE, PD, and PM interns each semester',
+                        '- Manage a semester budget of $144k to pay student interns and organize',
+                        'workshops and networking events',
+                        '- Work with the Eugene M. Lang Entrepreneurship Center and the CS',
+                        'Department to design academic guidelines for students', 'Skye', 'Software Engineer',
+                        'February 2021-May 2022(1 year 4 months)', 'New York City Metropolitan Area',
+                        '- Develop a full-stack web application for professional coaching services',
+                        '- Implement Firebase back-end infrastructure for the React web app’s server to',
+                        'reduce costs',
+                        '- Design a novel matching algorithm to match 80+ clients to their personalized', 'coaches',
+                        '- Clean data from 6700+ schools in the U.S. to train the matching algorithm on'],
     }
 
 
@@ -333,4 +384,20 @@ def test_integrated():
         "summary": [
             "Hi, I'm Shivansh! I'm a senior at Columbia Engineering studying computer science. I'm interested in AI/ML, computer vision, and NLP. Feel free to reach out to me at ss5945@columbia.edu."
         ],
+        "experiences": ['Meta', 'Software Engineer', 'May 2022-Present(11 months)',
+                        'Menlo Park, California, United States', 'Integrity Observation Platform', 'Columbia Build Lab',
+                        'Vice President of Community', 'February 2021-Present(2 years 2 months)',
+                        'New York City Metropolitan Area',
+                        '- Interview and match 30+ MBA startup founders with 50+ undergrad and',
+                        'graduate SWE, PD, and PM interns each semester',
+                        '- Manage a semester budget of $144k to pay student interns and organize',
+                        'workshops and networking events',
+                        '- Work with the Eugene M. Lang Entrepreneurship Center and the CS',
+                        'Department to design academic guidelines for students', 'Skye', 'Software Engineer',
+                        'February 2021-May 2022(1 year 4 months)', 'New York City Metropolitan Area',
+                        '- Develop a full-stack web application for professional coaching services',
+                        '- Implement Firebase back-end infrastructure for the React web app’s server to',
+                        'reduce costs',
+                        '- Design a novel matching algorithm to match 80+ clients to their personalized', 'coaches',
+                        '- Clean data from 6700+ schools in the U.S. to train the matching algorithm on'],
     }
